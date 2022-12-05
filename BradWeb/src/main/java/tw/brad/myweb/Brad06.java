@@ -12,21 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Brad06")
 public class Brad06 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doGet()");
-		response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+		//response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost()");
 		request.setCharacterEncoding("UTF-8");
 		String account = request.getParameter("account");
 		String passwd = request.getParameter("passwd");
-		System.out.printf("%s : %s", account, passwd);
+		String gender = request.getParameter("gender");
 		
 		//----------
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.printf("%s : %s", account, passwd);
+		out.printf("%s : %s : %s", account, passwd, gender);
 		response.flushBuffer();
 		
 		

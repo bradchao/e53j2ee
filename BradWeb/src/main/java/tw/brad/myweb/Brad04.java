@@ -10,6 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Brad04")
 public class Brad04 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at:").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 }

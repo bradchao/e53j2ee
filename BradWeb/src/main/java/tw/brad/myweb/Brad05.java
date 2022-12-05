@@ -29,10 +29,19 @@ public class Brad05 extends HttpServlet {
 				intY = Integer.parseInt(y);
 			}catch(Exception e) {}
 			
-			int result = intX + intY;
-			r += result;
+			int result;
+			switch(op) {
+				case "1": result = intX + intY; r += result;break;  
+				case "2": result = intX - intY; r += result;break;  
+				case "3": result = intX * intY; r += result;break;  
+				case "4": 
+					result = intX / intY;
+					r += result + "..." + (intX % intY);
+					break;  
+			}
+			
 		}else {
-			x = y = "";
+			x = y = op = "";
 		}
 		
 		//------------
@@ -41,10 +50,14 @@ public class Brad05 extends HttpServlet {
 		out.print("<form action='Brad05'>");
 		out.printf("<input name='x' value='%s' />", x);
 		out.print("<select name='op'>");
-		out.print("<option value='1'> + </option>");
-		out.print("<option value='2'> - </option>");
-		out.print("<option value='3'> x </option>");
-		out.print("<option value='4'> / </option>");
+		out.print("<option value='1' " + 
+				(op.equals("1")?"selected":"") + "> + </option>");
+		out.print("<option value='2' " + 
+				(op.equals("2")?"selected":"")+ "> - </option>");
+		out.print("<option value='3' " + 
+				(op.equals("3")?"selected":"") + "> x </option>");
+		out.print("<option value='4' " + 
+				(op.equals("4")?"selected":"") + "> / </option>");
 		out.print("</select>");
 		out.printf("<input name='y'/ value='%s'> ", y);
 		out.print("<input type='submit' value='='>");

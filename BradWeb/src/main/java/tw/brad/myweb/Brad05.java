@@ -18,8 +18,15 @@ public class Brad05 extends HttpServlet {
 		String y = request.getParameter("y");
 		String r = "";
 		if (x != null && y != null) {
-			int intX = Integer.parseInt(x);
-			int intY = Integer.parseInt(y);
+			int intX = 0, intY = 0;
+			try {
+				intX = Integer.parseInt(x);
+			}catch(Exception e) {}
+			
+			try {
+				intY = Integer.parseInt(y);
+			}catch(Exception e) {}
+			
 			int result = intX + intY;
 			r += result;
 		}else {

@@ -22,6 +22,9 @@ public class Brad06 extends HttpServlet {
 		String passwd = request.getParameter("passwd");
 		String gender = request.getParameter("gender");
 		
+		String[] habbits =  request.getParameterValues("habbit");
+		
+		
 		//----------
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();

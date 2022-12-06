@@ -17,7 +17,13 @@ public class Brad15 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String x = request.getParameter("x");
 		String y = request.getParameter("y");
-		Integer r =  (Integer)request.getAttribute("result");
+		Double r =  (Double)request.getAttribute("result");
+		String view = (String)request.getAttribute("view");
+		
+		String op1 = (String)request.getAttribute("op1");
+		String op2 = (String)request.getAttribute("op2");
+		String op3 = (String)request.getAttribute("op3");
+		String op4 = (String)request.getAttribute("op4");
 		
 		String result;
 		if (x!= null && y!=null) {
@@ -30,8 +36,8 @@ public class Brad15 extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		try {
-			String content = BradUtils.loadView("view2");
-			out.printf(content, x, y, result);
+			String content = BradUtils.loadView(view);
+			out.printf(content, x, op1, op2, op3, op4, y, result);
 			response.flushBuffer();
 		}catch(Exception e) {
 			out.print("ERROR");

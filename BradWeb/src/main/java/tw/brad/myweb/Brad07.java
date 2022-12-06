@@ -37,7 +37,8 @@ public class Brad07 extends HttpServlet {
 				System.out.printf("%s : %s : %d\n", temp[0], fname, size);
 				
 				if (size > 0) {
-					if (temp[0].equals("application")) {
+					if (temp[0].equals("application") ||
+							temp[0].equals("text")) {
 						if (fname.contains(".")) {
 							String[] wname = fname.split("\\.");
 							sname = "." + wname[wname.length-1];

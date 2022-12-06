@@ -15,13 +15,28 @@ import tw.brad.api.BradUtils;
 public class Brad15 extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String x = request.getParameter("x");
+		String y = request.getParameter("y");
+		Integer r =  (Integer)request.getAttribute("result");
 		
+		String result;
+		if (x!= null && y!=null) {
+			result = r + "";
+		}else {
+			x = y = result = "";
+		}
+
 		//----------
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		String content = BradUtils.loadView();
-		out.print(content);
-		response.flushBuffer();
+		try {
+			String content = BradUtils.loadView("view2");
+			out.printf(content, x, y, result);
+			response.flushBuffer();
+		}catch(Exception e) {
+			out.print("ERROR");
+			response.flushBuffer();
+		}
 	}
 
 }

@@ -31,7 +31,8 @@ public class Brad13 extends HttpServlet {
 		
 		// 3. 呈現 View
 		request.setCharacterEncoding("UTF-8");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Brad15");
+		RequestDispatcher dispatcher = 
+				request.getRequestDispatcher("Brad15");
 		dispatcher.forward(request, response);
 		
 		

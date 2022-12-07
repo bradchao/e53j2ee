@@ -53,11 +53,11 @@ public class Brad20 extends HttpServlet {
 				response.sendRedirect("brad21.html");
 				break;
 			case CHECK_ACCOUNT_ERROR:
-//				response.sendRedirect("brad20.html");
-//				break;
+				response.sendRedirect("brad20.html");
+				break;
 			case CHECK_PASSWD_ERROR:
-//				response.sendRedirect("brad20.html");
-//				break;
+				response.sendRedirect("brad20.html");
+				break;
 			case CHECK_EXCEPTION:
 				response.sendRedirect("brad20.html");
 				break;

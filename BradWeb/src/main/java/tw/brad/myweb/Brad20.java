@@ -38,6 +38,34 @@ public class Brad20 extends HttpServlet {
 		}
 	}
 	
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//super.service(req, resp);
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		String account = request.getParameter("account");
+		String passwd = request.getParameter("passwd");
+		int check = checkAccount(account, passwd);
+		
+		switch(check) {
+			case CHECK_OK:
+				response.sendRedirect("brad21.html");
+				break;
+			case CHECK_ACCOUNT_ERROR:
+//				response.sendRedirect("brad20.html");
+//				break;
+			case CHECK_PASSWD_ERROR:
+//				response.sendRedirect("brad20.html");
+//				break;
+			case CHECK_EXCEPTION:
+				response.sendRedirect("brad20.html");
+				break;
+		}
+		
+	}
+	
+	/*
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
@@ -60,6 +88,7 @@ public class Brad20 extends HttpServlet {
 				break;
 		}
 	}
+	*/
 	
 	private int checkAccount(String account, String passwd) {
 		String sql = "SELECT * FROM member WHERE account = ?";

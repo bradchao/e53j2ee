@@ -40,6 +40,9 @@
 		${list[param.i] }<br />
 		${map["k2"] }<br />
 		${map.k2 }<br />
+		${10 + 3 }<br />
+		${param.x + param.y }<br />
+		${param.x == 10 }
 		
 	</body>
 </html>

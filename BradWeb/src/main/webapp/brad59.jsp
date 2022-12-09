@@ -10,15 +10,25 @@
 		user="root"
 		password="root" 
 		/>
+
+	<c:set var="rpp" value="10" />
+	<c:set var="page">${param.page == null ? 1 : param.page }</c:set>		
+	<c:set var="start">${(page - 1) * rpp }</c:set>
+	<c:set var="prev">${page - 1 }</c:set>
+	<c:set var="next">${page + 1 }</c:set>
+		
+		
 	<sql:query var="rs">
-		SELECT * FROM food
+		SELECT * FROM food ORDER BY id LIMIT ${start }, ${rpp }
 	</sql:query>
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 	</head>
 	<body>
-		資料筆數: ${rs.rowCount }
+		資料筆數: ${rs.rowCount } | 
+		<a href="?page=${prev }">上一頁</a> | 
+		<a href="?page=${next }">下一頁</a>
 		<hr />
 		<table border="1" width="100%">
 			<tr>

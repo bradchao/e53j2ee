@@ -22,4 +22,9 @@ public class Member {
 		this.realname = realname;
 	}
 	
+	@Override
+	public String toString() {
+		return account+":"+realname;
+	}
+	
 }

@@ -18,6 +18,10 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		<h1>Brad Big Company</h1>
+		<hr />
+		<a href="brad62.jsp">Add New Member</a>
+		<hr />
 		<table border="1" width="100%">
 			<tr>
 				<th>#</th>

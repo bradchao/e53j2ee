@@ -14,7 +14,7 @@
 	<body>
 		<h1>Brad Big Company</h1>
 		<hr />
-		<c:import url="https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvMovingRoad.aspx" 
+		<c:import url="https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAgriculturalProduce.aspx" 
 			var="data"></c:import>
 		<%
 			String data =  (String)pageContext.getAttribute("data");
@@ -35,9 +35,9 @@
 				JSONObject row = root.getJSONObject(i);
 				HashMap<String,String> travel = new HashMap<>();
 				travel.put("name", row.getString("Name"));
-				travel.put("tel", row.getString("Tel"));
-				travel.put("city", row.getString("City"));
-				travel.put("town", row.getString("Town"));
+				travel.put("tel", row.getString("ContactTel"));
+				travel.put("city", row.getString("County"));
+				travel.put("town", row.getString("Township"));
 				travels.add(travel);
 			}
 			

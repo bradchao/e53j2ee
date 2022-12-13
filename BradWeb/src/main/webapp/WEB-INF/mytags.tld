@@ -13,5 +13,10 @@
 		<tag-class>tw.brad.tags.MyTag1</tag-class>
 		<body-content>empty</body-content>
 	</tag>
+	<tag>
+		<name>mytag2</name>
+		<tag-class>tw.brad.tags.MyTag2</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
 	
 </taglib>

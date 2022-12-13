@@ -31,5 +31,19 @@
 			ok<br>
 			1234567
 		</iii:mytag2>
+		<hr />
+		<brad:sayHello user="Brad" /><br />
+		<brad:sayHello user="Tony" /><br />
+		<brad:sayHello user="Kevin" /><br />
+		<hr />
+		<brad:calc x="10" y="3">
+			10 + 3 = ${plus }<br />
+			10 - 3 = ${sub }<br />
+			10 x 3 = ${multi }<br />
+			10 / 3 = ${divide }<br />
+		</brad:calc>
+		
+		
+		
 	</body>
 </html>

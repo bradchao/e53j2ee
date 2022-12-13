@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			var page;
+			function test1(p){
+				$.ajax({
+					url : "brad72.jsp?page=" + p,
+					type : "get",
+					success: doSuccess,
+					error : doError
+				});
+			}
+			function doSuccess(json){
+				//console.log(json);
+				var jsonObj = $.parseJSON(json);
+				
+				if (jsonObj.page <= 0) page = 1;
+				if (jsonObj.page > 10) page = 10;
+				
+				
+				if (jsonObj.error != 0) return;
+				
+				page = jsonObj.page;
+				$('#page').html(page);
+				$('#table').empty();
+				$(jsonObj.data).each(
+					function(i, row){
+						//console.log(i + ":" + row.name + ":" + row.address);
+						$('#table').append(
+							'<tr>' +
+							'<td>' + row.name + '</td>' +
+							'<td>' + row.address + '</td>' +
+							'</tr>'
+						);
+					}		
+				);
+				
+				
+			}
+			
+			function doError(){
+				console.log("ERR");
+			}
+			
+			function prev(){
+				console.log("page:" + page);
+				test1(--page);
+			}
+			
+			function next(){
+				test1(++page);
+			}
+		</script>
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<input type="button" value="Load" onclick="test1(1)" /><br />
+		<input type="button" value="Prev" onclick="prev()">
+		Page : <span id='page'></span>
+		<input type="button" value="Next" onclick="next()">
+		<hr />
+		<table border="1" width="100%" id="table"/>
+	</body>
+</html>
